@@ -62,18 +62,17 @@ const PasswordProtect = () => {
   };
 
   return (
-    // <div
-    //   id="pw-wrapper"
-    //   style={{
-    //     height: '100vh',
-    //     background: '#fff',
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     justifyContent: 'center',
-    //     alignItems: 'center'
-    //   }}
-    // >
-    <>
+    <div
+      id="pw-wrapper"
+      style={{
+        height: '100vh',
+        background: '#fff',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
         Password Protected Area
       </h1>
@@ -109,8 +108,7 @@ const PasswordProtect = () => {
           Submit
         </button>
       </form>
-      </>
-    // </div>
+    </div>
   );
 };
 
