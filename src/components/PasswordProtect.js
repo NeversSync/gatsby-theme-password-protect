@@ -16,7 +16,6 @@ const styles = {
   input: {
     width: '100%',
     height: '48px',
-    // borderRadius: '4px',
     fontSize: '20px',
     textAlign: 'center',
     border: '0',
@@ -26,21 +25,19 @@ const styles = {
     margin: 'auto',
     width: '70%',
     height: '48px',
-    background: 'rebeccapurple',
+    background: '#00A0D1',
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: '14px',
+    fontSize: '16px',
     border: '0',
-    borderRadius: '20px',
-    // borderRadius: '4px',
+    borderRadius: '6px',
     marginTop: '30px',
-    // textTransform: 'uppercase',
     fontFamily: 'sans-serif',
     cursor: 'pointer'
   },
   buttonHover: {
-    background: 'goldenrod',
-    color: 'black',
+    background: '#00799e',
+    color: '#fff',
     fontWeight: 'bold'
   },
   link: {
@@ -48,7 +45,7 @@ const styles = {
     fontFamily: 'sans-serif'
   },
   linkHover: {
-    color: 'dodgerblue'
+    color: '#00799e'
   }
 };
 
@@ -65,21 +62,22 @@ const PasswordProtect = () => {
   };
 
   return (
-    <div
-      id="pw-wrapper"
-      style={{
-        height: '100vh',
-        background: '#2e8b57',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
+    // <div
+    //   id="pw-wrapper"
+    //   style={{
+    //     height: '100vh',
+    //     background: '#fff',
+    //     display: 'flex',
+    //     flexDirection: 'column',
+    //     justifyContent: 'center',
+    //     alignItems: 'center'
+    //   }}
+    // >
+    <>
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
-        Protected post
+        Password Protected Area
       </h1>
-      <h4 style={{ color: '#1f1f1f' }}>Password?</h4>
+      <h2 style={{ color: '#1f1f1f' }}>Password?</h2>
 
       <form
         onSubmit={onSubmit}
@@ -108,10 +106,11 @@ const PasswordProtect = () => {
           onMouseEnter={() => buttonHover(true)}
           onMouseLeave={() => buttonHover(false)}
         >
-          Enter!
+          Submit
         </button>
       </form>
-    </div>
+      </>
+    // </div>
   );
 };
 
