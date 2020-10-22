@@ -7,7 +7,7 @@ import { setSessionPassword } from '../utils/utils';
 const styles = {
   wrapper: {
     height: '100vh',
-    background: '#2e8b57',
+    background: '#fff',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -55,8 +55,8 @@ const styles = {
 const PasswordProtect = () => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
-  const [isThemeHovered, themeHover] = useState(false);
-  const [isSiteHovered, siteHover] = useState(false);
+  // const [isThemeHovered, themeHover] = useState(false);
+  // const [isSiteHovered, siteHover] = useState(false);
 
   const onSubmit = event => {
     event.preventDefault();
@@ -76,10 +76,10 @@ const PasswordProtect = () => {
         alignItems: 'center'
       }}
     >
-      <h1 style={{ color: '#fff', marginBottom: '0px', paddingBottom: '0px' }}>
+      <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
         Protected post
       </h1>
-      <h4 style={{ color: '#fff' }}>Password?</h4>
+      <h4 style={{ color: '#1f1f1f' }}>Password?</h4>
 
       <form
         onSubmit={onSubmit}
@@ -111,33 +111,6 @@ const PasswordProtect = () => {
           Enter!
         </button>
       </form>
-
-      {/* <a
-        href="https://gitlab.com/mkit/open-source/gatsby-theme-password-protect#readme"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          ...styles.link,
-          ...(isThemeHovered ? styles.linkHover : null)
-        }}
-        onMouseEnter={() => themeHover(true)}
-        onMouseLeave={() => themeHover(false)}
-      >
-        gatsby-theme-password-protect
-      </a> */}
-      {/* <a
-        href="https://mkit.io"
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          ...styles.link,
-          ...(isSiteHovered ? styles.linkHover : null)
-        }}
-        onMouseEnter={() => siteHover(true)}
-        onMouseLeave={() => siteHover(false)}
-      >
-        MK IT
-      </a> */}
     </div>
   );
 };
