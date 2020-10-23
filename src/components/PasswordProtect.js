@@ -64,7 +64,12 @@ const PasswordProtect = () => {
   return (
     <div
       id="pw-wrapper"
-      style={styles.wrapper}
+      style={{height: '100vh',
+      background: 'rgba(38, 191, 153, 0.9)',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center'}}
     >
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
         Password Required
