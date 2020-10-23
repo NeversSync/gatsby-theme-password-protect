@@ -87,6 +87,7 @@ const PasswordProtect = () => {
         <input
           name="password"
           type="password"
+          required
           placeholder="Password"
           value={password}
           onChange={event => setPassword(event.target.value)}
