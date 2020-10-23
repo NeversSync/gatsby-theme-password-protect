@@ -5,14 +5,14 @@ import React, { useState } from 'react';
 import { setSessionPassword } from '../utils/utils';
 
 const styles = {
-  wrapper: {
-    height: '100vh',
-    background: 'rgba(38, 191, 153, 0.9)',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
+  // wrapper: {
+  //   height: '100vh',
+  //   background: 'rgba(38, 191, 153, 0.9)',
+  //   display: 'flex',
+  //   flexDirection: 'column',
+  //   justifyContent: 'center',
+  //   alignItems: 'center'
+  // },
   input: {
     width: '100%',
     height: '48px',
