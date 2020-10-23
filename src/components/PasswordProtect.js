@@ -5,14 +5,14 @@ import React, { useState } from 'react';
 import { setSessionPassword } from '../utils/utils';
 
 const styles = {
-  // wrapper: {
-  //   height: '100vh',
-  //   background: 'rgba(38, 191, 153, 0.9)',
-  //   display: 'flex',
-  //   flexDirection: 'column',
-  //   justifyContent: 'center',
-  //   alignItems: 'center'
-  // },
+  wrapper: {
+    height: '100vh',
+    background: 'rgba(38, 191, 153, 0.9)',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
   input: {
     width: '100%',
     height: '48px',
@@ -42,13 +42,6 @@ const styles = {
     color: '#fff',
     fontWeight: 'bold'
   },
-  link: {
-    color: '#fff',
-    fontFamily: 'sans-serif'
-  },
-  linkHover: {
-    color: '#00799e'
-  }
 };
 
 const PasswordProtect = () => {
@@ -56,6 +49,8 @@ const PasswordProtect = () => {
   const [isButtonHovered, buttonHover] = useState(false);
 
   const onSubmit = event => {
+    console.info('event', event)
+    console.info('setsession', setSessionPassword(password))
     event.preventDefault();
     setSessionPassword(password);
     window.location.reload(); // eslint-disable-line
@@ -64,12 +59,7 @@ const PasswordProtect = () => {
   return (
     <div
       id="pw-wrapper"
-      style={{height: '100vh',
-      background: 'rgba(38, 191, 153, 0.9)',
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center'}}
+      style={styles.wrapper}
     >
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
         Password Required
