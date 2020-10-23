@@ -19,7 +19,8 @@ const styles = {
     fontSize: '20px',
     textAlign: 'center',
     border: '0',
-    borderRadius: '4px'
+    borderRadius: '4px',
+    marginTop: '24px'
   },
   button: {
     margin: 'auto',
@@ -31,7 +32,7 @@ const styles = {
     fontSize: '16px',
     borderRadius: '4px',
     transition: 'all 0.3s',
-    marginTop: '30px',
+    marginTop: '24px',
     fontFamily: 'sans-serif',
     cursor: 'pointer',
     border: '0',
