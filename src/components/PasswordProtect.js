@@ -7,7 +7,7 @@ import { setSessionPassword } from '../utils/utils';
 const styles = {
   wrapper: {
     height: '100vh',
-    background: '#fff',
+    background: 'rgba(38, 191, 153, 0.9)',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -19,21 +19,22 @@ const styles = {
     fontSize: '20px',
     textAlign: 'center',
     border: '0',
-    borderRadius: '6px'
+    borderRadius: '4px'
   },
   button: {
     margin: 'auto',
-    width: '70%',
-    height: '48px',
+    width: '181px',
+    height: '56px',
     background: '#00A0D1',
     color: '#fff',
     fontWeight: 'bold',
     fontSize: '16px',
-    border: '0',
-    borderRadius: '6px',
+    borderRadius: '4px',
+    transition: 'all 0.3s',
     marginTop: '30px',
     fontFamily: 'sans-serif',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    border: '0',
   },
   buttonHover: {
     background: '#00799e',
@@ -52,8 +53,6 @@ const styles = {
 const PasswordProtect = () => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
-  // const [isThemeHovered, themeHover] = useState(false);
-  // const [isSiteHovered, siteHover] = useState(false);
 
   const onSubmit = event => {
     event.preventDefault();
@@ -64,20 +63,11 @@ const PasswordProtect = () => {
   return (
     <div
       id="pw-wrapper"
-      style={{
-        height: '100vh',
-        background: '#fff',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
+      style={styles.wrapper}
     >
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
-        Password Protected Area
+        Password Required
       </h1>
-      <h2 style={{ color: '#1f1f1f' }}>Password?</h2>
-
       <form
         onSubmit={onSubmit}
         style={{
@@ -91,6 +81,7 @@ const PasswordProtect = () => {
         <input
           name="password"
           type="password"
+          placeholder="Password"
           value={password}
           onChange={event => setPassword(event.target.value)}
           style={styles.input}
@@ -105,7 +96,7 @@ const PasswordProtect = () => {
           onMouseEnter={() => buttonHover(true)}
           onMouseLeave={() => buttonHover(false)}
         >
-          Submit
+          Enter
         </button>
       </form>
     </div>
