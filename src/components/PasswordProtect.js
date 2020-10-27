@@ -13,6 +13,9 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center'
   },
+  successWrapper: {
+    height: '0px',
+  },
   input: {
     width: '100%',
     height: '48px',
@@ -44,22 +47,22 @@ const styles = {
   },
 };
 
-const PasswordProtect = () => {
+const PasswordProtect = ({isValidated}) => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
+  console.info('is validated outside', isValidated)
 
   const onSubmit = event => {
-    console.info('event', event)
-    console.info('setsession', setSessionPassword(password))
     event.preventDefault();
     setSessionPassword(password);
-    window.location.reload(); // eslint-disable-line
+    console.info('is validated inside', isValidated)
+    window.location.reload();
   };
 
   return (
     <div
       id="pw-wrapper"
-      style={styles.wrapper}
+      style={isValidated ? styles.successWrapper : styles.wrapper}
     >
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
         Password Required
