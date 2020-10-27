@@ -58,10 +58,11 @@ const PasswordProtect = ({isValidated}) => {
     setSessionPassword(password);
     console.info('is validated inside', isValidated)
     isValidated = true
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (
+    isValidated ? (
     <div
       id="pw-wrapper"
       style={isValidated ? styles.successWrapper : styles.wrapper}
@@ -102,6 +103,8 @@ const PasswordProtect = ({isValidated}) => {
         </button>
       </form>
     </div>
+    ) :
+    null
   );
 };
 
