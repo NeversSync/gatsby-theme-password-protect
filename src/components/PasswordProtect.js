@@ -50,12 +50,14 @@ const styles = {
 const PasswordProtect = ({isValidated}) => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
+
   console.info('is validated outside', isValidated)
 
   const onSubmit = event => {
     event.preventDefault();
     setSessionPassword(password);
     console.info('is validated inside', isValidated)
+    isValidated = true
     window.location.reload();
   };
 
