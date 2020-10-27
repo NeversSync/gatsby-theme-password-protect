@@ -13,7 +13,7 @@ import PasswordProtect from './src/components/PasswordProtect';
 export const wrapPageElement = ({ props }, THEME_OPTIONS) => {
   const { password, pagePaths, partialMatching } = THEME_OPTIONS;
   const { location } = props;
-  const isValidated = false
+  let isValidated = false
 
   // password protection disabled
   if (!password) {
