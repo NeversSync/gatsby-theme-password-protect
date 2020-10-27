@@ -55,17 +55,19 @@ const PasswordProtect = ({isValidated}) => {
 
   const onSubmit = event => {
     event.preventDefault();
-    setSessionPassword(password);
-    console.info('is validated inside', isValidated)
+    const valid = setSessionPassword(password);
+    console.info('valid in submit', valid)
+    // setValidation()
     isValidated = true
+    console.info('is validated inside', isValidated)
     window.location.reload();
   };
 
   return (
-    !isValidated ? (
     <div
       id="pw-wrapper"
-      style={isValidated ? styles.successWrapper : styles.wrapper}
+      style={valid ? styles.successWrapper : styles.wrapper}
+      // style={isValidated ? styles.successWrapper : styles.wrapper}
     >
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
         Password Required
@@ -103,8 +105,6 @@ const PasswordProtect = ({isValidated}) => {
         </button>
       </form>
     </div>
-    ) :
-    null
   );
 };
 

@@ -3,12 +3,22 @@ import queryString from 'query-string';
 
 const COOKIE_NAME = 'gatsby-theme-password-protect';
 
-export const setSessionPassword = passwordCandidate => {
-  Cookies.set(COOKIE_NAME, passwordCandidate);
-};
+// export const setSessionPassword = passwordCandidate => {
+//   Cookies.set(COOKIE_NAME, passwordCandidate);
+// };
 
 export const getSessionPassword = () => {
   return Cookies.get(COOKIE_NAME);
+};
+
+export const setSessionPassword = passwordCandidate => {
+  let isValid = false
+  Cookies.set(COOKIE_NAME, passwordCandidate);
+  const password = getSessionPassword();
+  if (password === passwordCandidate) {
+    isValid = true
+  }
+  return isValid
 };
 
 export const getQueryPassword = location => {

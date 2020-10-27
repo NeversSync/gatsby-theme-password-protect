@@ -21,7 +21,7 @@ export const wrapPageElement = ({ props }, THEME_OPTIONS) => {
   }
 
   // page-level protection
-  const isPageLevelProtectionOn = pagePaths && pagePaths.length > 0;
+const isPageLevelProtectionOn = pagePaths && pagePaths.length > 0;
   if (isPageLevelProtectionOn) {
     // non-protected page
     if (!isProtectedPage(location, pagePaths, partialMatching)) {
