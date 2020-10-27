@@ -53,13 +53,14 @@ const PasswordProtect = ({isValidated}) => {
 
   console.info('is validated outside', isValidated)
 
+  let valid = false
   const onSubmit = event => {
     event.preventDefault();
-    const valid = setSessionPassword(password);
+    valid = setSessionPassword(password);
     console.info('valid in submit', valid)
     // setValidation()
-    isValidated = true
-    console.info('is validated inside', isValidated)
+    // isValidated = true
+    // console.info('is validated inside', isValidated)
     window.location.reload();
   };
 
