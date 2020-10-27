@@ -53,7 +53,7 @@ const PasswordProtect = () => {
 
   // console.info('is validated outside', isValidated)
   let valid = false
-  console.info('is valid outside', isValid)
+  console.info('is valid outside', valid)
 
   const onSubmit = event => {
     event.preventDefault();
