@@ -13,6 +13,7 @@ import PasswordProtect from './src/components/PasswordProtect';
 export const wrapPageElement = ({ props }, THEME_OPTIONS) => {
   const { password, pagePaths, partialMatching } = THEME_OPTIONS;
   const { location } = props;
+  const isValidated = false
 
   // password protection disabled
   if (!password) {
@@ -31,9 +32,10 @@ export const wrapPageElement = ({ props }, THEME_OPTIONS) => {
   // correct password
   const passwordCandidate = getQueryPassword(location) || getSessionPassword();
   if (passwordCandidate === password) {
+    isValidated = true
     return;
   }
 
   // check password
-  return <PasswordProtect />;
+  return <PasswordProtect isValidated={isValidated}/>;
 };
