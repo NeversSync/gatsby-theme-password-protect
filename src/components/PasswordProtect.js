@@ -47,13 +47,14 @@ const styles = {
   },
 };
 
-const PasswordProtect = ({isValidated}) => {
+const PasswordProtect = () => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
 
-  console.info('is validated outside', isValidated)
-
+  // console.info('is validated outside', isValidated)
   let valid = false
+  console.info('is valid outside', isValid)
+
   const onSubmit = event => {
     event.preventDefault();
     valid = setSessionPassword(password);
@@ -61,13 +62,15 @@ const PasswordProtect = ({isValidated}) => {
     // setValidation()
     // isValidated = true
     // console.info('is validated inside', isValidated)
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (
+    !valid ? (
     <div
       id="pw-wrapper"
-      style={valid ? styles.successWrapper : styles.wrapper}
+      style={styles.wrapper}
+      // style={valid ? styles.successWrapper : styles.wrapper}
       // style={isValidated ? styles.successWrapper : styles.wrapper}
     >
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
@@ -106,6 +109,7 @@ const PasswordProtect = ({isValidated}) => {
         </button>
       </form>
     </div>
+    ) : null
   );
 };
 
