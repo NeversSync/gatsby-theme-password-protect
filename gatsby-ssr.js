@@ -6,14 +6,14 @@ import React from 'react';
 import {
   getSessionPassword,
   getQueryPassword,
-  isProtectedPage
+  isProtectedPage, getIsValidated
 } from './src/utils/utils';
 import PasswordProtect from './src/components/PasswordProtect';
 
 export const wrapPageElement = ({ props }, THEME_OPTIONS) => {
   const { password, pagePaths, partialMatching } = THEME_OPTIONS;
   const { location } = props;
-  let isValidated = false
+  // let isValidated = false
 
   // password protection disabled
   if (!password) {
@@ -21,7 +21,7 @@ export const wrapPageElement = ({ props }, THEME_OPTIONS) => {
   }
 
   // page-level protection
-  const isPageLevelProtectionOn = pagePaths && pagePaths.length > 0;
+const isPageLevelProtectionOn = pagePaths && pagePaths.length > 0;
   if (isPageLevelProtectionOn) {
     // non-protected page
     if (!isProtectedPage(location, pagePaths, partialMatching)) {
@@ -31,11 +31,11 @@ export const wrapPageElement = ({ props }, THEME_OPTIONS) => {
 
   // correct password
   const passwordCandidate = getQueryPassword(location) || getSessionPassword();
-  if (passwordCandidate === password) {
-    isValidated = true
+  const isValidatedCookie = getIsValidated()
+  if (passwordCandidate === password || isValidatedCookie === true) {
     return;
   }
 
   // check password
-  return <PasswordProtect isValidated={isValidated}/>;
+  return <PasswordProtect/>;
 };
