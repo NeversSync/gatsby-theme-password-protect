@@ -58,7 +58,7 @@ const PasswordProtect = ({isValidated}) => {
     setSessionPassword(password);
     console.info('is validated inside', isValidated)
     isValidated = true
-    // window.location.reload();
+    window.location.reload();
   };
 
   return (
