@@ -62,7 +62,7 @@ const PasswordProtect = ({isValidated}) => {
   };
 
   return (
-    isValidated ? (
+    !isValidated ? (
     <div
       id="pw-wrapper"
       style={isValidated ? styles.successWrapper : styles.wrapper}
