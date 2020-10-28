@@ -36,5 +36,7 @@ const isPageLevelProtectionOn = pagePaths && pagePaths.length > 0;
   }
 
   // check password
-  return <PasswordProtect/>;
+  if (!isValidatedCookie) {
+    return <PasswordProtect/>;
+  }
 };
