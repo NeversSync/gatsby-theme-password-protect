@@ -45,8 +45,8 @@ const styles = {
   },
 };
 
-// const PasswordProtect = ({ location = '/' }) => {
-const PasswordProtect = () => {
+// const PasswordProtect = () => {
+const PasswordProtect = ({ location = '/' }) => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
 

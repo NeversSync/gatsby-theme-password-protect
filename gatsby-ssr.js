@@ -34,6 +34,8 @@ export const wrapPageElement = ({ props }, THEME_OPTIONS) => {
     return;
   }
 
+  const PasswordProtectWithTwoPass = withTwoPassRendering(PasswordProtect);
+
   // check password
-  return <PasswordProtect />;
+  return <PasswordProtectWithTwoPass />;
 };

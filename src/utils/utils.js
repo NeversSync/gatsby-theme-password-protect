@@ -1,3 +1,4 @@
+import React, { useState, useEffect} from 'react'
 import Cookies from 'js-cookie';
 import queryString from 'query-string';
 
@@ -26,4 +27,21 @@ export const isProtectedPage = ({ pathname }, pagePaths, partialMatching) => {
   });
 
   return isProtected;
+};
+
+export const withTwoPassRendering = (WrappedComponent) => ({
+  children,
+  ...rest
+}) => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, [setIsClient]);
+
+  return (
+    <WrappedComponent {...rest} key={isClient}>
+      {children}
+    </WrappedComponent>
+  );
 };
