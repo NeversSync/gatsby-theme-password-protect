@@ -34,6 +34,7 @@ const isPageLevelProtectionOn = pagePaths && pagePaths.length > 0;
   if (passwordCandidate === password || isValidatedCookie === true) {
     return;
   }
+  console.info('isvalidatedcooke', isValidatedCookie)
 
   // check password
   if (!isValidatedCookie) {
