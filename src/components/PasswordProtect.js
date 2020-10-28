@@ -3,7 +3,7 @@
  */
 import React, { useState } from 'react';
 import { navigate } from 'gatsby'
-import { getIsValidated, setSessionPassword } from '../utils/utils';
+import { setSessionPassword } from '../utils/utils';
 
 const styles = {
   wrapper: {
@@ -13,9 +13,6 @@ const styles = {
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  successWrapper: {
-    height: '0px',
   },
   input: {
     width: '100%',
@@ -51,8 +48,6 @@ const styles = {
 const PasswordProtect = () => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
-  const [isThemeHovered, themeHover] = useState(false);
-  const [isSiteHovered, siteHover] = useState(false);
 
   const onSubmit = event => {
     event.preventDefault();
@@ -60,29 +55,9 @@ const PasswordProtect = () => {
     navigate(location.href, { replace: true });
   }
 
-// const PasswordProtect = () => {
-//   const [password, setPassword] = useState('');
-//   const [isButtonHovered, buttonHover] = useState(false);
-
-//   let valid = getIsValidated()
-
-//   console.info('is valid outside', valid)
-
-//   const onSubmit = event => {
-//     event.preventDefault();
-//     valid = setSessionPassword(password);
-
-//     console.info('valid in submit', valid)
-//     window.location.reload();
-//     valid = setSessionPassword(password);
-//     console.info('valid in submit after', valid)
-//   };
-
   return (
     <div
       id="pw-wrapper"
-      // style={valid ? styles.successWrapper : styles.wrapper}
-      // style={styles.wrapper}
       style={{
         height: '100vh',
         background: 'rgba(38, 191, 153, 0.9)',
