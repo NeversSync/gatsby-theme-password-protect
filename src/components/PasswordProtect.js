@@ -62,7 +62,7 @@ const PasswordProtect = () => {
 
     console.info('valid in submit', valid)
 
-    // window.location.reload();
+    window.location.reload();
   };
 
   return (
