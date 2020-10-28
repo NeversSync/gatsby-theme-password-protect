@@ -2,6 +2,7 @@
  * Write-only the password as cookie
  */
 import React, { useState } from 'react';
+import { navigate } from 'gatsby'
 import { getIsValidated, setSessionPassword } from '../utils/utils';
 
 const styles = {
@@ -47,28 +48,42 @@ const styles = {
   },
 };
 
-const PasswordProtect = () => {
+const PasswordProtect = ({ location = '/' }) => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
+  const [isThemeHovered, themeHover] = useState(false);
+  const [isSiteHovered, siteHover] = useState(false);
 
-  let valid = getIsValidated()
-
-  console.info('is valid outside', valid)
-
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
-    valid = setSessionPassword(password);
+    setSessionPassword(password);
+    window.location.reload(); // eslint-disable-line
+    navigate(location.href, { replace: true });
+  }
 
-    console.info('valid in submit', valid)
-    window.location.reload();
-    valid = setSessionPassword(password);
-    console.info('valid in submit after', valid)
-  };
+// const PasswordProtect = () => {
+//   const [password, setPassword] = useState('');
+//   const [isButtonHovered, buttonHover] = useState(false);
+
+//   let valid = getIsValidated()
+
+//   console.info('is valid outside', valid)
+
+//   const onSubmit = event => {
+//     event.preventDefault();
+//     valid = setSessionPassword(password);
+
+//     console.info('valid in submit', valid)
+//     window.location.reload();
+//     valid = setSessionPassword(password);
+//     console.info('valid in submit after', valid)
+//   };
 
   return (
     <div
       id="pw-wrapper"
-      style={valid ? styles.successWrapper : styles.wrapper}
+      // style={valid ? styles.successWrapper : styles.wrapper}
+      style={styles.wrapper}
     >
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
         Password Required
