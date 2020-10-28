@@ -61,8 +61,9 @@ const PasswordProtect = () => {
     valid = setSessionPassword(password);
 
     console.info('valid in submit', valid)
-
     window.location.reload();
+    valid = setSessionPassword(password);
+    console.info('valid in submit after', valid)
   };
 
   return (
