@@ -2,7 +2,7 @@
  * Write-only the password as cookie
  */
 import React, { useState } from 'react';
-import { setIsValidated, setSessionPassword } from '../utils/utils';
+import { getIsValidated, setSessionPassword } from '../utils/utils';
 
 const styles = {
   wrapper: {
@@ -52,7 +52,8 @@ const PasswordProtect = () => {
   const [isButtonHovered, buttonHover] = useState(false);
 
   // console.info('is validated outside', isValidated)
-  let valid = false
+  let valid = getIsValidated()
+
   console.info('is valid outside', valid)
 
   const onSubmit = event => {
