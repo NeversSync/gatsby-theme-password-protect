@@ -51,7 +51,6 @@ const PasswordProtect = () => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
 
-  // console.info('is validated outside', isValidated)
   let valid = getIsValidated()
 
   console.info('is valid outside', valid)
