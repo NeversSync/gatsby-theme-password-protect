@@ -6,7 +6,7 @@ import React from 'react';
 import {
   getSessionPassword,
   getQueryPassword,
-  isProtectedPage, getIsValidated
+  isProtectedPage
 } from './src/utils/utils';
 import PasswordProtect from './src/components/PasswordProtect';
 
@@ -20,7 +20,7 @@ export const wrapPageElement = ({ props }, THEME_OPTIONS) => {
   }
 
   // page-level protection
-const isPageLevelProtectionOn = pagePaths && pagePaths.length > 0;
+  const isPageLevelProtectionOn = pagePaths && pagePaths.length > 0;
   if (isPageLevelProtectionOn) {
     // non-protected page
     if (!isProtectedPage(location, pagePaths, partialMatching)) {
@@ -30,13 +30,10 @@ const isPageLevelProtectionOn = pagePaths && pagePaths.length > 0;
 
   // correct password
   const passwordCandidate = getQueryPassword(location) || getSessionPassword();
-  const isValidatedCookie = getIsValidated()
-  if (passwordCandidate === password || isValidatedCookie === true) {
+  if (passwordCandidate === password) {
     return;
   }
 
   // check password
-  if (!isValidatedCookie) {
-    return <PasswordProtect/>;
-  }
+  return <PasswordProtect />;
 };

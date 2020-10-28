@@ -48,16 +48,15 @@ const styles = {
   },
 };
 
-const PasswordProtect = ({ location = '/' }) => {
+const PasswordProtect = () => {
   const [password, setPassword] = useState('');
   const [isButtonHovered, buttonHover] = useState(false);
   const [isThemeHovered, themeHover] = useState(false);
   const [isSiteHovered, siteHover] = useState(false);
 
-  const onSubmit = (event) => {
+  const onSubmit = event => {
     event.preventDefault();
     setSessionPassword(password);
-    window.location.reload(); // eslint-disable-line
     navigate(location.href, { replace: true });
   }
 
@@ -83,7 +82,15 @@ const PasswordProtect = ({ location = '/' }) => {
     <div
       id="pw-wrapper"
       // style={valid ? styles.successWrapper : styles.wrapper}
-      style={styles.wrapper}
+      // style={styles.wrapper}
+      style={{
+        height: '100vh',
+        background: 'rgba(38, 191, 153, 0.9)',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
     >
       <h1 style={{ color: '#1f1f1f', marginBottom: '0px', paddingBottom: '0px' }}>
         Password Required
