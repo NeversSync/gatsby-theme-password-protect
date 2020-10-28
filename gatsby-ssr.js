@@ -6,7 +6,7 @@ import React from 'react';
 import {
   getSessionPassword,
   getQueryPassword,
-  isProtectedPage
+  isProtectedPage, withTwoPassRendering
 } from './src/utils/utils';
 import PasswordProtect from './src/components/PasswordProtect';
 
